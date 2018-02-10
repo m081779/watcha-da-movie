@@ -1,0 +1,95 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+  <head>
+    <title>Watch-Da-Movie</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Bigelow+Rules|Nothing+You+Could+Do" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="text-shadow" id="title">Watcha-Da-Movie!</h1>
+      <form class="logout" action="/logout" method="get">
+        <input type="submit" name="submit" value="Log out" class="btn btn-lg btn-danger"  >
+      </form>
+    </header>
+    <div class="container">
+    <div class="dashboard-container">
+
+
+
+
+  	<div class="row">
+  		<h3 id="label" class="text-shadow text-center col-sm-offset-3 col-sm-6">Enter a movie, or say "Add" and then then the name of your movie:</h3>
+  		<form class="col-sm-offset-3 col-sm-6">
+  			<div class="form-group">
+  				<div class="bubble">
+  					<textarea name="movie" class="" rows="2" id="movieInput" autofocus></textarea>
+  				</div>
+  				<input type="submit" value="Submit" id="submit" class="btn btn-danger btn-block" class="form-control">
+  			</div>
+  		</form>
+  	</div>
+
+  	<div class="row">
+  		<div class="col-sm-6">
+  			<h3 class="sectionTitle text-shadow text-center">Movie Queue:</h3>
+          <% for (let i = 0; i < movies.length; i++) {%>
+            <% if (!movies[i].watched) { %>
+  					<div class="movie text-shadow">
+  						<p  class="movieListItem"><span class="movieName" data-movieName="<%=movies[i].movie_name%>"><%=movies[i].movie_name%></span><button class="watch pull-right btn btn-danger" id="<%=movies[i]._id%>">Watched it!</button></p>
+  					</div>
+          <% } %>
+        <% } %>
+  		</div>
+
+  		<div class="col-sm-6">
+  			<h3 class="sectionTitle text-shadow text-center">Watched Movies:</h3>
+        <% for (let i = 0; i < movies.length; i++) {%>
+          <% if (movies[i].watched) { %>
+  					<div class="watched movie text-shadow">
+  						<p class="watchedMovie"><%=movies[i].movie_name%></p>
+  						<p class="dateTime"><%=movies[i].watchedAt%></p>
+  					</div>
+            <% } %>
+          <% } %>
+  		</div>
+  		<div id="movieModal" class="text-center">
+  			<div class="modalHeader">
+  				<div class="close"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
+  			</div>
+  			<h1 id="movieTitle" class=""></h1>
+  			<ul id="movieRatings"></ul>
+  			<div id="movieActors"></div>
+  			<p id="moviePlot"></p>
+  			<iframe id="trailer" src="" frameborder="0" allowfullscreen></iframe>
+  			<button id="nextButton" class="btn btn-danger btn-block">Not it?  Try again!</button>
+  		</div>
+
+  	</div>
+  	<!-- Modal -->
+  </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script async defer src="https://apis.google.com/js/client.js?onload=init"></script>
+  <script src="assets/js/script.js"></script>
+
+  </body>
+</html>

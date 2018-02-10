@@ -1,0 +1,367 @@
+body {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+					background-image: url('../img/background.jpg');
+					background-repeat: no-repeat;
+					background-size: 100% 100%;
+					background-attachment: fixed;
+}
+
+#landing-page-container {
+	height: 100%;
+	width: 100%;
+	background: white;
+}
+
+#previewBox {
+	letter-spacing: 0.15em;
+	font-size: 16px;
+	color: white;
+	text-shadow: 1.5px 1.5px 1px black;
+	position: absolute;
+	width: 58vw;
+	height: 62vh;
+	left: 50%;
+	top:3%;
+	transform: translate(-50%);
+	background: green;
+	padding: 60px;
+
+}
+.ratingBox {
+	border: 1px solid white;
+	height: 18vh;
+	width: 40vw;
+	margin: 0 auto;
+	position: relative;
+}
+
+.previewRating {
+	border: 1px solid white;
+	border-left: none;
+	border-top: none;
+	position: absolute;
+	height: 12vh;
+	width: 12vh;
+	font-size: 50px;
+	font-family: 'times new roman';
+	font-weight: bold;
+	line-height: 12vh;
+}
+
+.ratingButtons {
+	height: 12vh;
+	border-bottom: 1px solid white;
+	border-right:none;
+	border-left: none;
+
+}
+
+#previewBox a{
+	color: white;
+	text-decoration: none;
+}
+
+.ratingLogin {
+	border-bottom: 1px solid white;
+	position: absolute;
+
+	top:0;
+	right: 0;
+	height: 6vh;
+	width: 67vh;
+	line-height: 6vh;
+}
+
+.ratingSignup {
+	position: absolute;
+	right: 0;
+	top: 6vh;
+	height: 6vh;
+	width: 67vh;
+	line-height: 6vh;
+	text-align: center;
+	font-size: 12px;
+}
+
+.ratingText {
+	line-height: 6vh;
+}
+
+.website {
+	display: inline-block;
+	margin-top: 20px;
+	margin-right: 5vw;
+}
+
+.github {
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 5vw;
+}
+
+.previewBold {
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.signupBold {
+	font-size: 18px;
+}
+
+#dashboard-container {
+
+}
+
+.container {
+	width: 90%;
+}
+
+.movie {
+	background: orange;
+	height: 45px;
+	margin: 15px;
+	line-height: 36px;
+	font-size: 26px;
+	font-family: 'Nothing You Could Do', cursive;
+	padding-left: 15px;
+	border: 3px solid #A80000;
+}
+
+img {
+	height: 200px;
+	position: absolute;
+	left:50%;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	z-index: -1;
+}
+
+.text-shadow {
+	color: white;
+	text-shadow: 1px 1px rgba(0,0,0,0.5);
+}
+
+header {
+	position: fixed;
+	height: 80px;
+	line-height: 80px;
+	background: black;
+	width: 100%;
+	border-bottom: 2px solid red;
+}
+
+.logout {
+	float: right;
+	margin-right: 100px;
+}
+
+.sectionTitle{
+	background:orange;
+	border: 3px solid #A80000;
+	padding: 5px;
+	border-radius: 3px;
+	width: 50%;
+	margin: 5px auto;
+	font-family: 'Bigelow Rules', cursive;
+	font-size: 50px;
+}
+
+#title {
+	/* margin-top: 120px; */
+	display: inline-block;
+  margin: 0 0 0 50px;
+  font-size: 70px;
+  font-weight: bold;
+  font-family: 'Bigelow Rules', cursive;
+  text-shadow: 3px 3px rgba(0,0,0,1);
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 0px #A80000,
+		     2px 2px 0px #A80000,
+		     3px 3px 0px #A80000,
+		     4px 4px 0px #A80000,
+		     5px 5px 0px #A80000,
+		     6px 6px 0px #A80000,
+		     7px 7px 0px #A80000,
+		     8px 8px 3px rgba(255,255,255,0.6);
+}
+
+#submit	{
+	background: #A80000;
+	margin-bottom: 10px;
+	font-family: 'Bigelow Rules', cursive;
+	font-size: 40px;
+	padding: 0;
+}
+
+.watch {
+	background: #A80000;
+	font-size: 18px;
+}
+
+.btn {
+	border-radius: 0px;
+}
+
+.watchedMovie {
+	float:left;
+}
+
+.dateTime {
+	float: right;
+	margin-right: 15px;
+	font-family: arial;
+	font-size: 16px;
+}
+
+#label {
+	margin-top: 120px;
+	font-size: 26px;
+	font-style: italic;
+	color: white;
+	font-family: 'Nothing You Could Do', cursive;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
+
+.warning {
+	color: red;
+	font-style: italic;
+}
+
+.bubble {
+	position: relative;
+	height: 80px;
+	background: white;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	border: 2px solid #A80000;
+}
+
+.bubble:after {
+	position: absolute;
+	content: ' ';
+	height: 0px;
+	width: 0px;
+	top: 96%;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	border-top: 20px solid white;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+
+.bubble:before {
+	position: absolute;
+	content: ' ';
+	height: 0px;
+	width: 0px;
+	top: 100%;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	border-top: 20px solid #A80000;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+
+#movieInput {
+	position: absolute;
+	width: 95%;
+	border:none;
+	outline: none;
+	background: transparent;
+	margin: auto;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	resize: none;
+	font-size: 20px;
+	line-height: 40px;
+	overflow: hidden;
+}
+
+
+textarea:focus {
+	outline: none;
+}
+
+textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: brown;
+}
+
+textarea::-moz-placeholder { /* Firefox 19+ */
+  color: brown;
+}
+
+.movieName {
+	cursor: pointer;
+}
+
+
+/************************movieModal CSS************************/
+
+#movieModal {
+	width: 70%;
+	min-height: 50vh;
+	background: orange;
+	border: 4px solid #A80000;
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+
+	-webkit-transform: translate(-50%, -50%);
+
+	        transform: translate(-50%, -50%);
+	padding: 30px 0px;
+	color: #A80000;
+}
+
+.close {
+	position: absolute;
+	top: 1%;
+	right: 2%;
+}
+
+#movieTitle {
+	font-size: 45px;
+}
+
+#movieRatings {
+	list-style: none;
+	display: inline;
+}
+
+li {
+	display: inline;
+	padding: 0 5px;
+	font-size: 16px;
+}
+
+#movieActors {
+	font-size: 16px;
+}
+
+#moviePlot {
+	width: 80%;
+	margin: 20px auto;
+	font-size: 18px;
+	background: tan;
+	padding: 15px;
+	border-radius: 5px
+}
+
+#trailer {
+	width: 60%;
+	height:300px;
+}
+
+#nextButton{
+	width: 60%;
+	margin:0 auto;
+	background: #A80000;
+}
