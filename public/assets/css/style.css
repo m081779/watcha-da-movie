@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 body {
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -145,15 +147,15 @@ img {
 header {
 	position: fixed;
 	height: 80px;
-	line-height: 80px;
+	/* line-height: 80px; */
 	background: black;
 	width: 100%;
 	border-bottom: 2px solid red;
 }
 
 .logout {
-	float: right;
-	margin-right: 100px;
+	/* float: right; */
+	/* margin-right: 100px; */
 }
 
 .sectionTitle{
@@ -364,4 +366,67 @@ li {
 	width: 60%;
 	margin:0 auto;
 	background: #A80000;
+}
+
+
+/******************** neon css ********************/
+
+
+.neon {
+	text-decoration: none;
+	color: white;
+	position: absolute;
+	right: 0%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 3em;
+	margin: 0;
+	padding: 0 20px;
+	/* padding-left: 40px; */
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	text-shadow: 0 0 20px #ff005b;
+}
+.neon:hover {
+	text-decoration: none;
+	color: white;
+}
+
+.neon:after {
+	content: 'EXIT';
+	color: #ff005b;
+	position: absolute;
+	padding: 0 20px;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: blur(15px);
+}
+
+.neon:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #fe3a80;
+	z-index: -2;
+	filter: blur(40px);
+	opacity: 0.5;
+	animation-name: pulse;
+	animation-iteration-count: infinite;
+	animation-duration: 60ms;
+}
+
+@keyframes pulse {
+	0% {
+		filter: blur(30px);
+	}
+	50% {
+		filter: blur(45px);
+	}
+	100% {
+		filter: blur(30px);
+
 }
