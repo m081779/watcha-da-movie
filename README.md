@@ -1,6 +1,6 @@
 # Watcha-Da-Movie!
 
-## To view a live version of this app, [click here.](https://principio-movie-list.herokuapp.com/)
+## To view a live version of this app, [click here.](https://watcha-da-movie.herokuapp.com/)
 ### (If you have a microphone, Chrome is the recommended browser to utilize voice activated movie adding)
 
 ## Technologies used:
