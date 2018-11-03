@@ -1,7 +1,6 @@
 let idArr = [];
 let vidId = '';
 
-
 //function that captures input from textarea, validates it,
 //and then posts it to the server.
 function createmovie(movie) {
@@ -17,10 +16,10 @@ function createmovie(movie) {
 		});
 	} else {
 
-		$('#movieInput').val('Input may not be empty or contain special characters')
+		$('#movieInput').val('Input may not be empty or contain special characters');
 		setTimeout(function () {
-			$('#movieInput').val(input)
-		}, 1000 * 2)
+			$('#movieInput').val(input);
+		}, 1000 * 2);
 	}
 }
 
@@ -77,7 +76,7 @@ function showMovieModal(data) {
 function init() {
 	gapi.client.setApiKey('AIzaSyBlwnFUqu7sXdnRvYhnrEDn7ZMgOulZW2k');
 	gapi.client.load('youtube', 'v3', function () {
-		console.log('Youtube is ready for queries...')
+		console.log('Youtube is ready for queries...');
 		//click event for running query on movie title, and populating the modal
 		$(document).on('click', '.movieName', function (event) {
 			event.preventDefault();
@@ -85,7 +84,7 @@ function init() {
 			queryMovie(movie);
 			console.log('Query sent');
 		});
-	})
+	});
 }
 
 
@@ -97,18 +96,17 @@ function getVideo(movie) {
 		type: 'video',
 		q: encodeURIComponent(movie).replace(/%20/g, '+'),
 		maxResults: 20,
-		order: 'relevance',
-
+		order: 'relevance'
 	});
 
 	request.execute(function (result) {
 		if (result) {
 			for (var i = 0; i < result.items.length; i++) {
-				idArr.push(result.items[i].id.videoId)
+				idArr.push(result.items[i].id.videoId);
 			}
 			vidId = idArr[0];
 			let url = `https://www.youtube.com/embed/${idArr[0]}`;
-			$('#trailer').attr('src', url)
+			$('#trailer').attr('src', url);
 		}
 	});
 }
@@ -118,7 +116,7 @@ function showNextTrailer() {
 	let index = idArr.indexOf(vidId);
 	vidId = idArr[index+1];
 	let url = `https://www.youtube.com/embed/${vidId}`;
-	$('#trailer').attr('src', url)
+	$('#trailer').attr('src', url);
 }
 
 //initializing annyang speech-to-text functionality
@@ -139,8 +137,8 @@ if (annyang) {
 } else {
 	let h4 = $('<h4>');
 	h4.addClass('warning text-center')
-	  .text('Your browser doesn\'t support speech recognition')
-	  .prependTo('#movieForm');
+		.text('Your browser doesn\'t support speech recognition')
+		.prependTo('#movieForm');
 }
 
 
@@ -154,7 +152,7 @@ $('#submit').on('click', function (event) {
 //event listener for enter key
 $('#movieInput').keydown(function (e) {
 	let key = e.which;
-	if(key == 13) {
+	if(key === 13) {
 		createmovie();
 	}
 });
@@ -190,7 +188,7 @@ $('#nextButton').on('click', function (event) {
 
 $('#login').on('click', function (event) {
 	event.preventDefault();
-	let user = {}
+	let user = {};
 	user.userName = $('#userName').val().trim();
 	user.password = $('#password').val().trim();
 	$.ajax('/login', {
@@ -202,7 +200,7 @@ $('#login').on('click', function (event) {
 
 $('#create').on('click', function (event) {
 	event.preventDefault();
-	let user = {}
+	let user = {};
 	user.userName = $('#create-userName').val().trim();
 	user.password = $('#create-password').val().trim();
 	$.ajax('/api/create', {

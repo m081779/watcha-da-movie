@@ -52,7 +52,7 @@ module.exports = function(app, passport) {
         .findOne({'local.email': req.user.local.email})
         .populate('movies')
         .then(user => {
-          res.render('profile', {movies: user.movies, user: user.local.email})
+          res.render('profile', {movies: user.movies, user: user.local.email});
         })
         .catch(err=> res.json(err));
     });
@@ -114,7 +114,7 @@ module.exports = function(app, passport) {
         if (!err) {
           res.clearCookie('connect.sid', {path: '/'}).redirect('/');
         } else {
-          console.log('Error from session destroy:', err)
+          console.log('Error from session destroy:', err);
         }
       });
     });
@@ -131,14 +131,14 @@ app.post('/api/movie', (req,res) => {
     movie_name: req.body.movie_name,
     addedAt: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
     watchedAt: ''
-  })
+  });
   Movie
     .create(newMovie)
     .then(result => {
       User
         .findOneAndUpdate({'local.email': req.user.local.email}, {$push: {movies: result._id}})
         .then(response => {
-          res.sendStatus(200)
+          res.sendStatus(200);
         })
         .catch(err => res.json(err));
     })
@@ -158,7 +158,7 @@ app.put('/api/:movie', (req,res) => {
       .catch(err => res.json(err));
 });
 
-}
+};
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
