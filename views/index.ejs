@@ -34,5 +34,18 @@
     </div>
 
 </div>
+<script>
+    const setDynamicCss = () => {
+        let parent = document.querySelector('.ratingButtons'),
+            preview = document.querySelector('.previewRating'),
+            child1 = document.querySelector('.ratingLogin'),
+            child2 = document.querySelector('.ratingSignup'),
+            totalWidth = parent.offsetWidth,
+            previewWidth = preview.offsetWidth;
+        [child1, child2].forEach(child => child.style.width = `${totalWidth - previewWidth}px`);
+    }
+    window.onload = setDynamicCss();
+    window.addEventListener('resize', setDynamicCss)
+</script>
 </body>
 </html>
