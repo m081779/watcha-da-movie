@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash    = require('connect-flash');
 const path     = require('path');
+const favicon  = require('serve-favicon');
 const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
@@ -18,18 +19,18 @@ mongoose.Promise = Promise;
 mongoose
   .connect(config.database)
   .then( result => {
-    console.log(`Connected to database '${result.connections[0].name}' on ${result.connections[0].host}:${result.connections[0].port}`)
+    console.log(`Connected to database '${result.connections[0].name}' on ${result.connections[0].host}:${result.connections[0].port}`);
   })
   .catch(err => console.log('There was an error with your connection:', err));
 
 require('./config/passport')(passport); // pass passport for configuration
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(favicon(path.join(__dirname, 'public/assets/img', 'favicon.ico')));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
