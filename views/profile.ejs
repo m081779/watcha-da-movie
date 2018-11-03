@@ -18,14 +18,12 @@
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
     <header>
       <h1 class="text-shadow" id="title">Watcha-Da-Movie!</h1>
-      <!-- <form class="logout" action="/logout" method="get">
-        <input type="submit" name="submit" value="Log out" class="btn btn-lg btn-danger"  >
-      </form> -->
+
       <a href="/logout" class="neon logout"><span style="font-size: 30px; position: absolute; left: -10%; top: 15%">&#9668;</span>EXIT</a>
     </header>
     <div class="container">
@@ -46,9 +44,17 @@
   		</form>
   	</div>
 
+    <div class="row">
+      <div class="col-sm-6">
+          <h3 class="sectionTitle text-shadow text-center">Movie Queue:</h3>
+      </div>
+      <div class="col-sm-6">
+          <h3 class="sectionTitle text-shadow text-center">Watched Movies:</h3>
+      </div>
+    </div>
   	<div class="row">
-  		<div class="col-sm-6">
-  			<h3 class="sectionTitle text-shadow text-center">Movie Queue:</h3>
+  		<div class="col-sm-6 movieSection">
+  			
           <% for (let i = 0; i < movies.length; i++) {%>
             <% if (!movies[i].watched) { %>
   					<div class="movie text-shadow">
@@ -58,8 +64,8 @@
         <% } %>
   		</div>
 
-  		<div class="col-sm-6">
-  			<h3 class="sectionTitle text-shadow text-center">Watched Movies:</h3>
+  		<div class="col-sm-6 movieSection">
+  			
         <% for (let i = 0; i < movies.length; i++) {%>
           <% if (movies[i].watched) { %>
   					<div class="watched movie text-shadow">
