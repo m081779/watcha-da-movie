@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
 	movie_name: {
-		type: String,
+		type: String
 	},
 	watched: {
 		type: Boolean,
