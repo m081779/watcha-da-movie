@@ -111,7 +111,6 @@ function getVideo(movie) {
 //function that cycles through the youtube videos to find the right trailer
 function showNextTrailer() {
 	const index = idArr.indexOf(vidId),
-				h4 = $('<h4>'),
 				url = `https://www.youtube.com/embed/${vidId}`;
 	vidId = idArr[index+1];
 	$('#trailer').attr('src', url);
@@ -122,7 +121,7 @@ if (annyang) {
 	// property defines command, passes
 	//anything said after 'add' as an argument to
 	//createmovie function and calls it.
-	var commands = {
+	const commands = {
 		'add *movie': createmovie
 	};
 
@@ -132,7 +131,7 @@ if (annyang) {
 	// Start listening.
 	annyang.start();
 } else {
-	h4.addClass('warning text-center')
+	$('<h4>').addClass('warning text-center')
 		.text('Your browser doesn\'t support speech recognition')
 		.prependTo('#movieForm');
 }
