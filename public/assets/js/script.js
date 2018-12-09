@@ -15,14 +15,12 @@ function createmovie(movie) {
 			location.reload();
 		});
 	} else {
-
 		$('#movieInput').val('Input may not be empty or contain special characters');
 		setTimeout(function () {
 			$('#movieInput').val(input);
 		}, 1000 * 2);
 	}
 }
-
 
 //function that runs ajax call to omdb, and initiates the query to youtube api
 function queryMovie(movie) {
@@ -39,7 +37,7 @@ function queryMovie(movie) {
 
 //function that populates the modal when a movie is clicked
 function showMovieModal(data) {
-	const { Title, Plot, imdbRating, year, Runtime, Actors, Ratings } = data,
+	const { Title, Plot, Actors, Ratings } = data,
 				title = $('#movieTitle'),
 				ratings = $('#movieRatings'),
 				actors = $('#movieActors'),
@@ -62,25 +60,12 @@ function showMovieModal(data) {
 			let li = $('<li class="rating">')
 								.text(`${item.Source}: ${item.Value}`)
 								.appendTo('#movieRatings');
-			// i !== Ratings.length - 1 && ratings.append('<li>|</li>');
-			// if (i !== Ratings.length - 1) {
-			// 	ratings.append('<li>|</li>');
-			// }
+			i !== Ratings.length - 1 && ratings.append('<li>|</li>');
 		});
-		// for (var i = 0; i < data.Ratings.length; i++) {
-		// 	let { Source, Value } = data.Ratings[i];
-		// 	let li = $('<li class="rating">')
-		// 				.text(`${Source}: ${Value}`)
-		// 				.appendTo('#movieRatings');
-		// 	if (i !== data.Ratings.length - 1) {
-		// 		ratings.append('<li>|</li>');
-		// 	}
-		// }
 		ratings.show();
 		title.text(Title);
 		actors.show().text(`Starring: ${Actors}`);
 		plot.show().text(Plot);
-	// }
 }
 
 
@@ -125,12 +110,12 @@ function getVideo(movie) {
 
 //function that cycles through the youtube videos to find the right trailer
 function showNextTrailer() {
-	let index = idArr.indexOf(vidId);
+	const index = idArr.indexOf(vidId),
+				h4 = $('<h4>'),
+				url = `https://www.youtube.com/embed/${vidId}`;
 	vidId = idArr[index+1];
-	let url = `https://www.youtube.com/embed/${vidId}`;
 	$('#trailer').attr('src', url);
 }
-
 //initializing annyang speech-to-text functionality
 if (annyang) {
 
@@ -147,7 +132,6 @@ if (annyang) {
 	// Start listening.
 	annyang.start();
 } else {
-	let h4 = $('<h4>');
 	h4.addClass('warning text-center')
 		.text('Your browser doesn\'t support speech recognition')
 		.prependTo('#movieForm');
@@ -181,16 +165,11 @@ $(document).on('click', '.watch', function (event) {
 	});
 });
 
-
-
-
-
 //click event for closing the modal
 $('.close').on('click', function (event) {
 	event.preventDefault();
 	$('#movieModal').hide();
 });
-
 
 //click event for button that cycles through different youtube videos
 $('#nextButton').on('click', function (event) {
