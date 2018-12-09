@@ -1,7 +1,7 @@
 {
-  "name": "eat-da-burger",
+  "name": "watcha-da-movie",
   "version": "1.0.0",
-  "description": "node,express, and mysql app where users can create custom burger queues and eat-da-burgers",
+  "description": "node,express, and mongo app where users can create custom movie lists and track when they were watched",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
