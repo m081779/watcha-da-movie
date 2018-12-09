@@ -39,36 +39,48 @@ function queryMovie(movie) {
 
 //function that populates the modal when a movie is clicked
 function showMovieModal(data) {
-	let {Title, Plot, imdbRating, year, Runtime, Actors} = data;
-	$('#movieTitle').text('');
-	$('#movieRatings').text('');
-	$('#movieActors').text('');
-	$('#moviePlot').text('');
+	const { Title, Plot, imdbRating, year, Runtime, Actors, Ratings } = data,
+				title = $('#movieTitle'),
+				ratings = $('#movieRatings'),
+				actors = $('#movieActors'),
+				plot = $('#moviePlot');
+	title.text('');
+	ratings.text('');
+	actors.text('');
+	plot.text('');
 	if (data) {
 		$('#movieModal').show();
 	}
 	if (data.Error) {
-		$('#movieTitle').text('No information for this movie');
-		$('#movieRatings').hide().val('');
-		$('#movieActors').hide().val('');
-		$('#moviePlot').hide().val('');
-	} else {
-
-		//loops through ratings to dynamically display them
-		for (var i = 0; i < data.Ratings.length; i++) {
-			let {Source, Value} = data.Ratings[i];
+		title.text('No information for this movie');
+		ratings.hide().val('');
+		actors.hide().val('');
+		plot.hide().val('');
+		return;
+	} 
+		Ratings.forEach((item, i) => {
 			let li = $('<li class="rating">')
-						.text(`${Source}: ${Value}`)
-						.appendTo('#movieRatings');
-			if (i !== data.Ratings.length - 1) {
-				$('#movieRatings').append('<li>|</li>');
-			}
-		}
-		$('#movieRatings').show();
-		$('#movieTitle').text(Title);
-		$('#movieActors').show().text(`Starring: ${Actors}`);
-		$('#moviePlot').show().text(Plot);
-	}
+								.text(`${item.Source}: ${item.Value}`)
+								.appendTo('#movieRatings');
+			// i !== Ratings.length - 1 && ratings.append('<li>|</li>');
+			// if (i !== Ratings.length - 1) {
+			// 	ratings.append('<li>|</li>');
+			// }
+		});
+		// for (var i = 0; i < data.Ratings.length; i++) {
+		// 	let { Source, Value } = data.Ratings[i];
+		// 	let li = $('<li class="rating">')
+		// 				.text(`${Source}: ${Value}`)
+		// 				.appendTo('#movieRatings');
+		// 	if (i !== data.Ratings.length - 1) {
+		// 		ratings.append('<li>|</li>');
+		// 	}
+		// }
+		ratings.show();
+		title.text(Title);
+		actors.show().text(`Starring: ${Actors}`);
+		plot.show().text(Plot);
+	// }
 }
 
 
