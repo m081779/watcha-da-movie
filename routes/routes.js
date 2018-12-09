@@ -121,7 +121,7 @@ module.exports = (app, passport) => {
     });
     Movie
       .create(newMovie)
-      .then(result => (
+      .then(result => {
         User
           .findOneAndUpdate({'local.email': req.user.local.email}, {$push: {movies: result._id}})
           .then(response => res.sendStatus(200))
@@ -150,4 +150,4 @@ const isLoggedIn = (req, res, next) => {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
-}
+};
